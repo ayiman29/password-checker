@@ -52,12 +52,16 @@
 <body>
     <div class="container">
         <h1>Password Generator</h1>
-        <!-- Form that will send a request to generate a new password -->
-        <form method="POST">
-            <button type="submit">Generate Password</button>
-        </form>
         <div class="password">{{ password }}</div>
+        <form method="POST">
+            <button type="submit" name="generate_password">Generate New Password</button>
+        </form>
+        <form method="POST">
+            <button type="submit" name="check_breach">Check If This Password Is Breached</button>
+        </form>
         <div class="status">{{ safe_status }}</div>
     </div>
 </body>
 </html>
+
+
