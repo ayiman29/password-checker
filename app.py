@@ -54,9 +54,10 @@ def index():
                 safe_status = "Please generate a password first."
 
     return render_template("index.html",
-                           password=password,
-                           safe_status=safe_status,
-                           length=length)
+                       password=password,
+                       safe_status=safe_status,
+                       length=length,
+                       request=request)
 
 if __name__ == "__main__":
     app.run(debug=True)

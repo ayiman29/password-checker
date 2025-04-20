@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Password Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta property="og:title" content="Password Generator & Breach Checker">
+    <meta property="og:description" content="Generate strong passwords and check if they have been exposed in data breaches.">
+    <meta property="og:image" content="{{ url_for('static', filename='preview.png', _external=True) }}">
+    <meta property="og:url" content="{{ request.url_root }}">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
     <div class="overlay"></div>
