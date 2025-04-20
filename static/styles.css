@@ -1,54 +1,192 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #ffffff;
 }
 
 .container {
-    background: white;
+    background: #1a1a1a;
     padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
     text-align: center;
+    width: 360px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #00fff7;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
 }
 
 .password-box {
-    background: #f4f4f4;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+    background: #2c2c2c;
+    padding: 12px 20px;
+    margin-bottom: 25px;
     font-size: 20px;
     font-weight: bold;
-    border-radius: 6px;
-    color: #222;
+    border-radius: 8px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #00d9ff;
+    transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.2);
+    color: #00ffff;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #00a896;
     color: white;
     padding: 12px 18px;
-    margin: 10px;
+    margin: 10px 5px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 168, 150, 0.4);
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #02c8b0;
+    transform: translateY(-2px);
+}
+
+/* Disabled Button Style */
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
 }
 
 .status {
     margin-top: 20px;
     font-size: 18px;
-    color: #555;
+    color: #ddd;
+}
+
+/* Toast */
+.toast {
+    visibility: hidden;
+    min-width: 180px;
+    background-color: #222;
+    color: #00fff2;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 20px;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.password-box.animated {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+    display: none;
+    color: #00fff7;
+    margin-top: 15px;
+    font-size: 16px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* Slider Style */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #333;
+    outline: none;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00fff7;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    transition: transform 0.2s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #00fff7;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    transition: transform 0.2s ease;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+label[for="length"] {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #ccc;
+}
+
+#length-value {
+    font-weight: bold;
+    color: #00fff7;
+    display: block;
+    margin-top: 6px;
+    font-size: 18px;
 }

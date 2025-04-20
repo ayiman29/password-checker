@@ -8,8 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Required for using sessions
 
 # Function to generate a password
-def generate_password():
-    length = 12  # Customize length if needed
+def generate_password(length=12):
     characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choice(characters) for _ in range(length))
 
@@ -32,21 +31,29 @@ def check_password_breach(password):
 def index():
     password = session.get('password', '')
     safe_status = ''
+    length = 12  # default
 
     if request.method == "POST":
         if 'generate_password' in request.form:
-            password = generate_password()
+            try:
+                length = int(request.form.get('length', 12))
+                if length < 6 or length > 32:
+                    length = 12  # clamp if invalid
+            except ValueError:
+                length = 12
+            password = generate_password(length)
             session['password'] = password
             safe_status = ''
         elif 'check_breach' in request.form:
             password = session.get('password', '')
             if password:
                 breached = check_password_breach(password)
-                safe_status = "This password is found in a data breach!" if breached else "This password is safe!"
+                safe_status = "This password is found in a data breach!" if breached else "This password was not found in any data breach. It's safe to use!"
             else:
                 safe_status = "Please generate a password first."
 
-    return render_template("index.html", password=password, safe_status=safe_status)
+    return render_template("index.html", password=password, safe_status=safe_status, length=length)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
