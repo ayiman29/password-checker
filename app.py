@@ -5,14 +5,14 @@ import hashlib
 import requests
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey'  # Required for using sessions
+app.secret_key = 'supersecretkey'  
 
-# Function to generate a password
+
 def generate_password(length=12):
     characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choice(characters) for _ in range(length))
 
-# Function to check if the password is found in data breaches
+
 def check_password_breach(password):
     hashed_password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     prefix = hashed_password[:5]
@@ -38,7 +38,7 @@ def index():
             try:
                 length = int(request.form.get('length', 12))
                 if length < 6 or length > 32:
-                    length = 12  # clamp if invalid
+                    length = 12  
             except ValueError:
                 length = 12
             password = generate_password(length)
