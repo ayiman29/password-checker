@@ -12,10 +12,11 @@ This project is a web application that allows users to generate strong, random p
     <p><b>Thumbnail</b></p>
   </div>
   <div style="text-align: center;">
-    <img src="https://drive.google.com/uc?export=view&id=1J6hHAkfsnQ0kVkgBO-nRBtMwmndlwgYF" alt="Website Screenshot" width="444" height="250"/>
+    <img src="https://drive.google.com/uc?export=view&id=1J6hHAkfsnQ0kVkgBO-nRBtMwmndlwgYF" alt="Website Screenshot" width="666"/>
     <p><b>Website Preview</b></p>
   </div>
 </div>
+
 
 
 
