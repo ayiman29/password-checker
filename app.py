@@ -7,11 +7,9 @@ import requests
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  
 
-
 def generate_password(length=12):
     characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choice(characters) for _ in range(length))
-
 
 def check_password_breach(password):
     hashed_password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
@@ -53,7 +51,6 @@ def index():
                 safe_status = "Please generate a password first."
 
     return render_template("index.html", password=password, safe_status=safe_status, length=length)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
