@@ -4,7 +4,8 @@ This project is a web application that allows users to generate strong, random p
 
 🌐 **Live Site:** [https://password-checker-v5cv.onrender.com](https://password-checker-v5cv.onrender.com)
 
-📝 **Made for the BUCC (Brac University Computer Club) Interview – Spring 2025**
+📝 **Made for the BUCC (Brac University Computer Club) Interview – Spring 2025**  
+🚫 **Rejected by BUCC.**
 
 <div align="center" style="display: flex; justify-content: center; gap: 40px;">
   <div style="text-align: center;">
