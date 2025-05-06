@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Password Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
     <meta property="og:title" content="Password Generator & Breach Checker">
     <meta property="og:description" content="Generate strong passwords and check if they have been exposed in data breaches.">
     <meta property="og:image" content="{{ url_for('static', filename='preview.png', _external=True) }}">
@@ -46,7 +47,7 @@
             const passwordText = document.getElementById("password-text").textContent;
             navigator.clipboard.writeText(passwordText).then(() => {
                 showToast();
-                updateGenerateButtonState(); // Update button state after password is copied
+                updateGenerateButtonState(); 
             });
         }
 
@@ -87,11 +88,11 @@
         function updateGenerateButtonState() {
             const generateBtn = document.getElementById("generate-btn");
             if (generateBtn) {
-                generateBtn.textContent = "Regenerate Password"; // Change the text
-                generateBtn.disabled = true; // Disable the button temporarily
+                generateBtn.textContent = "Regenerate Password"; 
+                generateBtn.disabled = true; 
                 setTimeout(() => {
-                    generateBtn.disabled = false; // Re-enable after 3 seconds or after password copy
-                }, 3000); // Adjust time as needed
+                    generateBtn.disabled = false; 
+                }, 3000); 
             }
         }
 
